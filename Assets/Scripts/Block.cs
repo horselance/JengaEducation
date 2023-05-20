@@ -7,8 +7,8 @@ public class Block : MonoBehaviour
 {
     public BlockData blockData;
     public MeshRenderer meshRenderer;
-    [SerializeField] TextMeshPro txt_Type1, txt_Type2;
     public Color defaultColor, selectedColor, highlightColor;
+    [SerializeField] TextMeshPro txt_Type1, txt_Type2;
     // Start is called before the first frame update
     void Start()
     {

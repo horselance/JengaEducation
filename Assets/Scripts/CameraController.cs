@@ -6,6 +6,7 @@ public class CameraController : MonoBehaviour
 {
     public float orbitSpeed;
     public Transform camTransform;
+
     float _orbitSpeed => orbitSpeed / (float)Screen.width;
     bool isMouseDown;
     bool isOrbiting;
@@ -41,14 +42,12 @@ public class CameraController : MonoBehaviour
             float y = orbitStartPos.y - (mouseStartPos.x - Input.mousePosition.x) * _orbitSpeed;
             orbitTargetVector = Quaternion.Euler(Mathf.Clamp(x, 0f, 50f), y, 0f);
         }
+
         if (Input.GetMouseButtonUp(0))
         {
             isOrbiting = false;
-            if (MouseArea.isInside)
-            {
-
-            }
         }
+
         if (mouseWheelAxis != 0f)
         {
             zoomTargetVector = new Vector3(0f, camTransform.localPosition.y, Mathf.Clamp(camTransform.localPosition.z + mouseWheelAxis * 24f, -20f, -9f));
