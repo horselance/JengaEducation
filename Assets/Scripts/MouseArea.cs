@@ -5,14 +5,14 @@ using UnityEngine.EventSystems;
 
 public class MouseArea : MonoBehaviour,  IPointerEnterHandler, IPointerExitHandler
 {
-    public static bool isInside = true;
+    public static bool IsInside = true;
     public void OnPointerEnter(PointerEventData eventData)
     {
-        isInside = true;
+        IsInside = true;
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        isInside = false;
+        IsInside = false;
     }
 }

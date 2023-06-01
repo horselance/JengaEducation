@@ -24,7 +24,6 @@ public class Api : MonoBehaviour
     /// <param name="callback">Callback to run after response succeeded.</param>
     public IEnumerator Get(string url, Action<string> callback)
     {
-        string response;
         UnityWebRequest request = UnityWebRequest.Get(url);
 
         yield return request.SendWebRequest();
@@ -32,7 +31,7 @@ public class Api : MonoBehaviour
         switch (request.result)
         {
             case UnityWebRequest.Result.Success:
-                response = request.downloadHandler.text;
+                var response = request.downloadHandler.text;
                 callback?.Invoke(response);
                 break;
             default:

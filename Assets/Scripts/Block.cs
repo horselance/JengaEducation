@@ -34,14 +34,11 @@ public class Block : MonoBehaviour
 
     string MasteryType(int masteryNo)
     {
-        switch (masteryNo)
-        { 
-            default:
-                return "";
-            case 1:
-                return "Learned";
-            case 2:
-                return "Mastered";
-        }
+        return masteryNo switch
+        {
+            1 => "Learned",
+            2 => "Mastered",
+            _ => ""
+        };
     }
 }

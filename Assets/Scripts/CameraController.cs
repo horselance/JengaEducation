@@ -8,15 +8,14 @@ public class CameraController : MonoBehaviour
     public Transform camTransform;
 
     float _orbitSpeed => orbitSpeed / (float)Screen.width;
-    bool isMouseDown;
     bool isOrbiting;
     Vector3 orbitStartPos, mouseStartPos, zoomTargetVector, positionTargetVector;
     Quaternion orbitTargetVector;
-    float mouseWheelPos;
+    float _mouseWheelPos;
     // Start is called before the first frame update
     void Start()
     {
-        mouseWheelPos = Input.GetAxis("Mouse ScrollWheel");
+        _mouseWheelPos = Input.GetAxis("Mouse ScrollWheel");
         zoomTargetVector = camTransform.localPosition;
         orbitTargetVector = transform.rotation;
         positionTargetVector = transform.position;
@@ -28,7 +27,7 @@ public class CameraController : MonoBehaviour
         float mouseWheelAxis = Input.GetAxis("Mouse ScrollWheel");
         if (Input.GetMouseButtonDown(0))
         {
-            if (MouseArea.isInside && !isOrbiting)
+            if (MouseArea.IsInside && !isOrbiting)
             {
                 isOrbiting = true;
                 mouseStartPos = Input.mousePosition;
